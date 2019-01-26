@@ -1,3 +1,8 @@
+## JD: It would be nice to have a paragraph or two about the project in the main README.md
+
+## Avoid putting version numbers in your version-tracked filenames
+## Use the version tracking to simplify your life
+
 #################
 #Assignment 2
 #Lauren Negrazis 
@@ -14,8 +19,16 @@ fish
 x <- nrow(fish)
 x
 
+## JD: Don't bother to assign unless you're going to use
+## The clearest statement of what you're doing here would be
+## `print(nrow(fish))`
+## The print is completely functionless, but it's nice for readers
+
 #Making new columns for each site
 fish2 <- fish
+
+## JD: This is nicely done, but you should be trying hard to figure out how to do it in a tidy way.
+## It should be possible to parse the names out directly without all this indirection; we can talk
 
 fish2$site1 <-str_extract(fish2$Sample.ID, "NBE1")
 fish2$site2 <-str_extract(fish2$Sample.ID, "NBE2")
@@ -37,6 +50,7 @@ fish2$site17 <-str_extract(fish2$Sample.ID, "NBI5")
 fish2$site18 <-str_extract(fish2$Sample.ID, "NBI6")
 
 #combining them all and getting rid of the NAs
+## JD: You don't actually ever do anything with fish3, right?
 fish3 <- fish2
 
 fish4 <- fish2 %>% mutate(site = coalesce(site1,site2,site3,site4,site5,site6,site7,site8,site9,site10,	site11,	site12,	site13,	site14,	site15,	site16,	site17,	site18)) %>%
@@ -72,6 +86,7 @@ str(fish6)
 #removing values that are too low (highlighed in red on the spreadsheet)
 ## All the numbers that highlighted NBE-28,NBE3-04, NBE3-34, NBE2-13, NBE2-05, NBE1-24, NBE1-16
 #NBE1-16 and NBE1-25 low/poor isotope values
+## JD: Maybe better to use filter instead of $ notation
 fish7 <- fish6[ !(fish6$Sample.ID %in% c("NBE1-16","NBE1-25")), ]
 
 ##############
@@ -79,6 +94,9 @@ fish7 <- fish6[ !(fish6$Sample.ID %in% c("NBE1-16","NBE1-25")), ]
 #############
 library(dplyr)
 library(ggplot2)
+## JD: Doesn't seem to do that, I guess you would need to use some version of count()
+
+## JD theme_set(theme_bw()) can be used once here to avoid repetition below
 
 #Scatter plot seeing how many fish were collected from each site 
 ggplot(fish7, aes(x=Sample.ID, y=Amount , colour= site))+
@@ -121,3 +139,4 @@ ggplot(fish7, aes(x= watershed, y= C.N))+
   ylab( "Carbon to Nitrogen Ratio (C/N)")+
   theme_bw()
 
+## JD: Maybe better to have fewer, better-designed (and/or better explained?) plots
