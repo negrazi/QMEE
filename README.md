@@ -2,3 +2,17 @@
 Repo made for Wed, Jan 9, 2019 class
 This is a line from RStudio
 This is a line from GitHub
+
+##############
+#Update on Assignment 3
+##############
+I want to explore the relationship of methlymerury (MeHg) levels in the three catchements in New Brunswick. I collected samples from three different catchements that are harvested at three different levels.
+NBi is the most intensely harvested and we predict that we should see higher average MeHg in this cathcement. 
+NBE is the middle level of harvesting and NBR is minimally harvested and expected to have the lowest levels of Hg.
+
+The first plot is the average MeHg from each site and all plotted along one axis, colour coded to catchement for a quick look at the averages across the sites and catchements. 
+The second plot I wanted to use facet wrap to really make it clear the different catchements. I should have ordered them based on harvesting intensity but for now they are in alphabetical order. 
+The third is a boxplot for each total catchment MeHg, NBE appears to have the highest overall MeHg in the water, which we weren't expecting. The variation in MeHg is greater in NBE, but the average looks significantly higher. NBR has the lowest, which was expected. 
+The last plot is a geom_smooth plot of the overlayinig the three catchments to compare the differences between the sites. Site 1 was always the headwater of the catchment and site 6 was the furthest downstream. This gives an idea of the spatial varaiation of MeHg in the catchments. 
+
+It just occured to me that I can check for temporal variation since we collected samples in Septeber and October of this year. 
