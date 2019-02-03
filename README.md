@@ -16,3 +16,9 @@ The third is a boxplot for each total catchment MeHg, NBE appears to have the hi
 The last plot is a geom_smooth plot of the overlayinig the three catchments to compare the differences between the sites. Site 1 was always the headwater of the catchment and site 6 was the furthest downstream. This gives an idea of the spatial varaiation of MeHg in the catchments. 
 
 It just occured to me that I can check for temporal variation since we collected samples in Septeber and October of this year. 
+
+#######
+#Update on Assignment 4
+#######
+Part A in the folder answers the quesiton about MMV.
+Part B in the folder talks about the statistical tests I would use for my data and the hypothesis that I would be testing. 
