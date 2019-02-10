@@ -22,3 +22,13 @@ It just occured to me that I can check for temporal variation since we collected
 #######
 Part A in the folder answers the quesiton about MMV.
 Part B in the folder talks about the statistical tests I would use for my data and the hypothesis that I would be testing. 
+
+## JD: Are you sure you've checked your assumptions about your MMV friend?
+
+## Thanks for teaching me new chemistry notation; I don't know if I can get used to it, though.
+
+## You should actually have a stats plan before you start doing things like graphing response vs. predictory
+
+## It would be good to be clear about your questions before you decide which comparisons to do. Make good decisions before you spend power
+
+## Week grade: Good (2/3)
