@@ -32,3 +32,8 @@ Part B in the folder talks about the statistical tests I would use for my data a
 ## It would be good to be clear about your questions before you decide which comparisons to do. Make good decisions before you spend power
 
 ## Week grade: Good (2/3)
+
+#########
+#Assignment 5, Permutations
+#########
+Uploaded a folder with the R script and .csv file.
