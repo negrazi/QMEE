@@ -37,3 +37,10 @@ Part B in the folder talks about the statistical tests I would use for my data a
 #Assignment 5, Permutations
 #########
 Uploaded a folder with the R script and .csv file.
+
+#########
+#Assignment 6, Linear Models
+#########
+Uploaded folder with R script and .csv file. I recently got some data in about the water chemistry about the sites and it
+would be neat to see if any of those factors have any significant effect on my data. Especially since there is literature that says
+several things can affect the amount of MeHg in aquatic systems. 
