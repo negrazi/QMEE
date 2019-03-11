@@ -44,3 +44,9 @@ Uploaded a folder with the R script and .csv file.
 Uploaded folder with R script and .csv file. I recently got some data in about the water chemistry about the sites and it
 would be neat to see if any of those factors have any significant effect on my data. Especially since there is literature that says
 several things can affect the amount of MeHg in aquatic systems. 
+
+############
+#Assignmet 7
+############
+I couldn't get the code to work, but I set it up the best I could to reflect the codes given in class. 
+I wanted to use pH to build my prior probability because it's been shown in the literature to have a inverse relationship to the amount of MeHg in stream water.
