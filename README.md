@@ -50,3 +50,11 @@ several things can affect the amount of MeHg in aquatic systems.
 ############
 I couldn't get the code to work, but I set it up the best I could to reflect the codes given in class. 
 I wanted to use pH to build my prior probability because it's been shown in the literature to have a inverse relationship to the amount of MeHg in stream water.
+
+###########
+#Assignment 8
+###########
+I made a predicition of the amount of MeHg in the stream water based off my results if the pH was 6.3 in the stream water. The outcome to the prediction is 0.11338 ng/L. I would have expected the result to be higher because water at a pH of 6.35 has a MeHg of 0.137265816.
+
+Chisqr results Model: deviance= 0.50034, p=0.01989.
+Dispersion paramter is 0.36434/16=0.02277.
