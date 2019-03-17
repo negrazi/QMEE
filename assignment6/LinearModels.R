@@ -5,6 +5,7 @@
 #Hypothesis: forestry in NB impacts MeHg in water
 #libraries
 library(emmeans)
+library(dplyr) ## JD make sure your code runs without help; I had to add this
 
 waterMeHg<-read.csv("NB-MeHg-Results-UofT2018.csv")
 waterMeHg$MeHgLog <- log(waterMeHg$MeHg, 10)
