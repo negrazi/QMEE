@@ -8,10 +8,17 @@ library(ggplot2)
 library(broom)
 library(dotwhisker)
 
-rm(list=ls())
+## rm(list=ls())  ## BMB: don't do this, you should always
+                  ## start from a clean session anyway
 water <- read_csv("September2018 MeHgFieldresults.csv")
-water$logpH <- log(water$pH,10)
+## BMB: please avoid spaces in file names
+water$logpH <- log(water$pH,10) ## BMB: can also use log10()
 water$logMeHg <- log(water$MeHg,10)
+
+## BMB: it doesn't make sense to treat MeHg (or log10(MeHg))
+##  as a Poisson variable -- **never** (almost never) use
+## values that aren't actual discrete counts in a Poisson model
+## quasi-Poisson avoids the worst problems, but is still hard to motivate
 
 ggplot(water, aes(MeHg,pH))+
   geom_point()+
@@ -28,10 +35,15 @@ tidy(m1, exponentiate=TRUE)
 dwplot(m1)
 summary(m1)
 
+## BMB: this doesn't change anything since you used quasipoisson in the
+## first place??
 m1Q <- update(m1, family = quasipoisson(link="log"))
 summary(m1Q)
 
-#add to plot:
+##add to plot:
+## BMB: again, these regrssion lines are identical???
+## BMB: not reproducible. What is water2/where does it come from?
+##  code should be *self-contained*
 ggplot(water2, aes(MeHg,pH))+
   geom_point()+
   geom_smooth(method="glm",
@@ -51,3 +63,8 @@ plot(m1Q)
 #The outcome to the prediction is 0.11338 ng/L of MeHg if the water's pH is 6.3
 #Chisqr results Model: deviance= 0.50034, p=0.01989
 #dispersion paramter is 0.36434/16=0.02277
+
+## BMB: there's a fair amount of code here that doesn't make sense:
+##     did you notice ... ?
+
+## score: 1.5
