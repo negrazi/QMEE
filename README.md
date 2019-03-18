@@ -58,3 +58,8 @@ I made a predicition of the amount of MeHg in the stream water based off my resu
 
 Chisqr results Model: deviance= 0.50034, p=0.01989.
 Dispersion paramter is 0.36434/16=0.02277.
+
+##################
+#Assignment 9
+###################
+Has been uploaded in the QMEE.
