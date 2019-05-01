@@ -2,7 +2,9 @@
 #Assignment 9
 #############
 #'Hypothesis: testing if there is spatial variation in MeHg measurements between sites
-#'within a watershed.  
+#'within a watershed.
+#' ## BMB: please avoid questions like "is there is spatial variation". We know there is
+#' ## more sensible questions would be e.g. "how much spatial variation is there?" "how does the magnitude of spatial variation compare with other interesting effects?" 
 
 library(ggplot2)
 library(emmeans)
@@ -36,9 +38,14 @@ water3$watershed2 <-str_extract(water3$site, "NBR")
 water3$watershed3 <-str_extract(water3$site, "NBI")
 
 water4 <- water3 %>% mutate(watershed = coalesce(watershed1, watershed2, watershed3)) %>%
-  select(watershed, site, meanMeHg, meanpH)
+    dplyr::select(watershed, site, meanMeHg, meanpH)
 
 water4$site.no <-str_extract_all(water4$site, "\\d")
+
+## BMB: how about
+## water3 %>% mutate(watershed=str_extract(site,"NB."))
+## ??
+## "NB." matches "NB" + any single character
 
 #site.no made chars, converting them to numbers
 water4$site.no <- as.numeric(as.character(water4$site.no))
@@ -59,6 +66,10 @@ lm2 <- lmer(meanMeHg~site.no+(1|watershed),
 ## random slopes
 lm3 <- lmer(meanMeHg~site.no+(1+site.no|watershed), data=water4) 
 
+## BMB: how about
+lattice::dotplot(ranef(lm3))
+## ?
+
 #compute pred
 pp0 <- expand.grid(water4,site.no=1:6,watershed=levels(water4$watershed))
 pp1 <- cbind(pp0,meanMeHg=predict(lm1,newdata=pp0))
@@ -77,10 +88,17 @@ plot(lm3)  ## fitted vs residual
 plot(lm3, sqrt(abs(resid(.))) ~ fitted(.),
      type=c("p","smooth"), col.line="red")
 
+## BMB: what do you conclude about the diagnostic plots?
+
 #making the model to use in emmeans
 w2<- glm(meanMeHg~watershed, data=water4)
 
-#breaking apart the inital table to do comparisons of the mean MeHg between sites within watersheds
+## BMB: you should be able to do this all at once if you want to
+##  using lmList *or* lm(meHG.pgL ~ site*watershed)
+## but the whole point of using a mixed model is to *not* have
+##  to estimate everything separately.
+
+#breaking apart the initial table to do comparisons of the mean MeHg between sites within watersheds
 ws <- split(water2, water2$watershed)
 NBR <- ws$NBR
 NBE <- ws$NBE
@@ -118,3 +136,4 @@ grpMeans3 <- emmeans(NBI1, "site", data = NBI)
 grpMeans3
 pairs(grpMeans3)
 plot(grpMeans3, comparisons = TRUE)
+

@@ -41,10 +41,11 @@ m1Q <- update(m1, family = quasipoisson(link="log"))
 summary(m1Q)
 
 ##add to plot:
-## BMB: again, these regrssion lines are identical???
+## BMB: again, these regression lines are identical???
 ## BMB: not reproducible. What is water2/where does it come from?
-##  code should be *self-contained*
-ggplot(water2, aes(MeHg,pH))+
+## (code originally had "water2" rather than "water" -- seems to
+## work with "water")
+ggplot(water, aes(MeHg,pH))+
   geom_point()+
   geom_smooth(method="glm",
               method.args=list(family=quasipoisson(link="log")), fill="blue")+
