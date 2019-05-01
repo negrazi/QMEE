@@ -1,0 +1,6 @@
+
+Part A. The calculation is fine. I don't agree with the interpretation however. What you should infer about your friends test depends on why they got tested. Most positives for rare disease are in fact true positives, because most people who are tested for these diseases are tested for a reason. The idea that you need to look at the assumptions before you make the conclusion is the core of Bayesian philosophy.
+
+Part B. Your test seems reasonable. But your hypothesis is not a hypothesis. Of course forestry alters the mercury, at least to some extent. Further, if it didn't, it would be literally no way to show that, so it's not a testable hypothesis. We understand that this is the conventional way that people do frames statistical questions in most subfields, but we're trying to get you to challenge that.
+
+Grade 2/3 (Good)
