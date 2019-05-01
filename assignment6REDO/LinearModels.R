@@ -20,7 +20,7 @@ waterMeHg$MeHgLog <- log(waterMeHg$MeHg, 10)
 #arranging the sites from least harvested to most intensely harvested 
 waterMeHg <- mutate(waterMeHg,
                   watershed=factor(watershed,
-                              levels=c("NBR","NBE","NBi")))
+                              levels=c("NBR","NBE","NBI")))
 print(levels(waterMeHg$watershed))
 
 #diagnostic plot 
@@ -42,7 +42,9 @@ coefplot(m1)
 #making my model comparing the average MeHg values in each watershed
 pr(lm1 <- lm(MeHg~watershed-1,data=waterMeHg))
 
-predict(lm1,newdata=data.frame(watershed=c("NBR","NBE","NBi")),
+### error: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+#factor watershed has new levels NBi. NBi missing from waterMeHg dataset
+predict(lm1,newdata=data.frame(watershed=c("NBR","NBE","NBI")),
         interval="confidence")
 
 #using emmeans
@@ -55,7 +57,7 @@ plot(allEffects(lm1))
 #combining data frames of the MeHg data and the water chemistry data 
 ###
 #use this to combine information from different .csv files.
-waterdata <- read.csv("SeptemberOctober2018 MeHgFieldresults.csv")
+waterdata <- read.csv("SeptemberOctober2018MeHgFieldresults.csv")
 
 aveMeHg<- data.frame(waterMeHg %>%
   group_by(site)%>%
