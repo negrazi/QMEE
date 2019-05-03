@@ -14,7 +14,7 @@ library(arm)
 library(car)
 library(stringr)
 
-waterMeHg<-read_csv("SeptemberOctober2018MeHgFieldresults.csv")
+waterMeHg<-read_csv("assignment6/SeptemberOctober2018MeHgFieldresults.csv")
 waterMeHg$MeHgLog <- log(waterMeHg$MeHg, 10)
 
 #arranging the sites from least harvested to most intensely harvested 
@@ -28,8 +28,8 @@ m1 <- lm(MeHgLog~watershed, data=waterMeHg)
 plot(m1)
 
 #inferential plot (e.g., a coefficient plot, or something from emmeans or effects)
-pr <- function(m) printCoefmat(coef(summary(m)),
-                               digits=3,signif.stars=FALSE)
+pr <- function(m){printCoefmat(coef(summary(m)),
+                               digits=3,signif.stars=FALSE)}
 
 ## coeff plot 
 #making factors
@@ -57,7 +57,9 @@ plot(allEffects(lm1))
 #combining data frames of the MeHg data and the water chemistry data 
 ###
 #use this to combine information from different .csv files.
-waterdata <- read.csv("SeptemberOctober2018MeHgFieldresults.csv")
+## JD: had to add the directory to debug.
+## Also: don't read the same file twice, it's bad practice
+waterdata <- read.csv("assignment6/SeptemberOctober2018MeHgFieldresults.csv")
 
 aveMeHg<- data.frame(waterMeHg %>%
   group_by(site)%>%
@@ -95,4 +97,9 @@ water <- mutate(water,
 print(levels(waterMeHg$watershed))
 
 #didn't work
+## JD: Works now, but I'm not sure what I fixed
 pr(lm(MeHg~watershed,data=water,contrasts=list(oxygen=contr.sum)))        
+
+## JD: Nice effort but I would like more explanations of what you found.
+
+## Grade 2.1/3
